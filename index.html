@@ -4,133 +4,278 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Welcome to CaliforniaShack</title>
+	<title>CaliforniaShack - The Future of Y2K Fashion</title>
 	<!-- Bootstrap CSS -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 	<!-- Google Fonts -->
-	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 	<!-- Custom CSS -->
 	<style>
 		:root {
-			--beach-sand: #f5e6ca;
-			--ocean-blue: #3494b0;
-			--sunset-orange: #ff7e5f;
-			--palm-green: #7cb69d;
-			--shell-pink: #ffd5c2;
+			--matrix-black: #000000;
+			--matrix-green: #00ff41;
+			--matrix-dim-green: #003b00;
+			--matrix-silver: #c0c0c0;
+			--matrix-dark-silver: #333333;
+			--glow-shadow: 0 0 10px var(--matrix-green), 0 0 20px var(--matrix-green), 0 0 30px var(--matrix-green);
+		}
+
+		@keyframes matrixRain {
+			0% {
+				background-position: 0% 0%;
+			}
+			100% {
+				background-position: 0% 100%;
+			}
+		}
+
+		@keyframes glowPulse {
+			0% {
+				box-shadow: 0 0 5px var(--matrix-green);
+			}
+			50% {
+				box-shadow: 0 0 20px var(--matrix-green);
+			}
+			100% {
+				box-shadow: 0 0 5px var(--matrix-green);
+			}
+		}
+
+		@keyframes textGlow {
+			0% {
+				text-shadow: 0 0 5px var(--matrix-green);
+			}
+			50% {
+				text-shadow: 0 0 15px var(--matrix-green);
+			}
+			100% {
+				text-shadow: 0 0 5px var(--matrix-green);
+			}
 		}
 
 		body {
-			background: white;
-			font-family: 'Montserrat', sans-serif;
-			color: #2c3e50;
+			background-color: var(--matrix-black);
+			font-family: 'Poppins', sans-serif;
+			color: var(--matrix-silver);
 			line-height: 1.8;
+			position: relative;
+		}
+
+		body::before {
+			content: '';
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(0deg, 
+				rgba(0, 0, 0, 0.97), 
+				rgba(0, 0, 0, 0.9)
+			);
+			z-index: -1;
 		}
 
 		h1, h2, h3, h4, h5, h6 {
-			font-family: 'Playfair Display', serif;
+			font-family: 'Orbitron', sans-serif;
+			color: var(--matrix-green);
+			text-transform: uppercase;
+			letter-spacing: 2px;
 		}
 
 		.navbar {
-			background: rgba(255, 255, 255, 0.95);
-			box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+			background: rgba(0, 0, 0, 0.9);
+			border-bottom: 1px solid var(--matrix-green);
+			padding: 1rem 0;
+			transition: all 0.3s ease;
 		}
 
-		.navbar-brand, .nav-link {
-			color: var(--ocean-blue) !important;
-			font-weight: 600;
-			letter-spacing: 1px;
+		.navbar-brand {
+			font-family: 'Orbitron', sans-serif;
+			color: var(--matrix-green) !important;
+			font-weight: 700;
+			font-size: 1.5rem;
+			text-transform: uppercase;
+			letter-spacing: 3px;
+			transition: all 0.3s ease;
+		}
+
+		.navbar-brand:hover {
+			text-shadow: var(--glow-shadow);
+		}
+
+		.nav-link {
+			color: var(--matrix-silver) !important;
+			font-family: 'Orbitron', sans-serif;
+			text-transform: uppercase;
+			letter-spacing: 2px;
+			margin: 0 1rem;
+			position: relative;
+			transition: all 0.3s ease;
 		}
 
 		.nav-link:hover {
-			color: var(--sunset-orange) !important;
+			color: var(--matrix-green) !important;
+			text-shadow: var(--glow-shadow);
+		}
+
+		.nav-link::after {
+			content: '';
+			position: absolute;
+			bottom: -5px;
+			left: 0;
+			width: 0;
+			height: 2px;
+			background: var(--matrix-green);
+			transition: width 0.3s ease;
+		}
+
+		.nav-link:hover::after {
+			width: 100%;
+			box-shadow: var(--glow-shadow);
 		}
 
 		.hero {
-			background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)),
-						url('https://placehold.co/1200x600/3494b0/FFFFFF');
-			padding: 8rem 0;
-			margin-top: 76px;
+			height: 100vh;
+			margin-top: 0;
+			padding: 0;
+			position: relative;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			overflow: hidden;
+			background: var(--matrix-black);
+		}
+
+		.hero::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: linear-gradient(45deg, 
+				rgba(0, 255, 65, 0.1) 0%,
+				rgba(0, 0, 0, 0.9) 100%
+			);
+			z-index: 1;
+		}
+
+		.hero-content {
+			position: relative;
+			z-index: 2;
+			text-align: center;
+		}
+
+		.hero h1 {
+			font-size: 4rem;
+			font-weight: 900;
+			margin-bottom: 2rem;
+			animation: textGlow 2s infinite;
+		}
+
+		.hero p {
+			color: var(--matrix-silver);
+			font-size: 1.5rem;
+			margin-bottom: 3rem;
+			font-family: 'Poppins', sans-serif;
+		}
+
+		.btn-cyber {
+			background: transparent;
+			color: var(--matrix-green);
+			border: 2px solid var(--matrix-green);
+			padding: 1rem 3rem;
+			font-family: 'Orbitron', sans-serif;
+			text-transform: uppercase;
+			letter-spacing: 2px;
+			position: relative;
+			overflow: hidden;
+			transition: all 0.3s ease;
+			animation: glowPulse 2s infinite;
+		}
+
+		.btn-cyber:hover {
+			background: var(--matrix-green);
+			color: var(--matrix-black);
+			transform: translateY(-3px);
+			box-shadow: var(--glow-shadow);
+		}
+
+		.feature-card {
+			background: rgba(0, 0, 0, 0.7);
+			border: 1px solid var(--matrix-green);
+			border-radius: 5px;
+			padding: 2rem;
+			margin: 1rem 0;
+			transition: all 0.3s ease;
 			position: relative;
 			overflow: hidden;
 		}
 
-		.hero::after {
+		.feature-card::before {
 			content: '';
 			position: absolute;
-			bottom: 0;
-			left: 0;
-			right: 0;
-			height: 50px;
-			background: url('data:image/svg+xml,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" fill="%23ffffff"/></svg>') no-repeat;
-			background-size: cover;
+			top: 0;
+			left: -100%;
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(
+				90deg,
+				transparent,
+				rgba(0, 255, 65, 0.1),
+				transparent
+			);
+			transition: 0.5s;
 		}
 
-		.hero h1 {
-			color: var(--ocean-blue);
-			font-size: 3.5rem;
-			font-weight: 700;
-			margin-bottom: 1rem;
-		}
-
-		.hero p {
-			color: #2c3e50;
-			font-size: 1.25rem;
-			margin-bottom: 2rem;
-		}
-
-		.btn-beach {
-			background: var(--sunset-orange);
-			color: white;
-			border: none;
-			padding: 12px 35px;
-			border-radius: 30px;
-			font-weight: 600;
-			letter-spacing: 1px;
-			transition: all 0.3s ease;
-		}
-
-		.btn-beach:hover {
-			background: var(--ocean-blue);
-			color: white;
-			transform: translateY(-2px);
-			box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-		}
-
-		.feature-card {
-			background: white;
-			border-radius: 15px;
-			padding: 30px;
-			margin: 15px 0;
-			box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-			transition: all 0.3s ease;
-			border-bottom: 4px solid var(--ocean-blue);
+		.feature-card:hover::before {
+			left: 100%;
 		}
 
 		.feature-card:hover {
 			transform: translateY(-5px);
-			box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-			border-bottom-color: var(--sunset-orange);
+			box-shadow: 0 0 20px rgba(0, 255, 65, 0.2);
 		}
 
 		.feature-card h3 {
-			color: var(--ocean-blue);
-			font-weight: 700;
-			margin-bottom: 1rem;
+			color: var(--matrix-green);
+			margin-bottom: 1.5rem;
 		}
 
 		footer {
-			background: var(--beach-sand);
-			color: #2c3e50;
-			padding: 30px 0;
-			margin-top: 50px;
+			background: rgba(0, 0, 0, 0.9);
+			border-top: 1px solid var(--matrix-green);
+			color: var(--matrix-silver);
+			padding: 2rem 0;
+		}
+
+		.social-icons {
+			margin-top: 1rem;
+		}
+
+		.social-icons a {
+			color: var(--matrix-silver);
+			margin: 0 1rem;
+			font-size: 1.5rem;
+			transition: all 0.3s ease;
+		}
+
+		.social-icons a:hover {
+			color: var(--matrix-green);
+			text-shadow: var(--glow-shadow);
 		}
 
 		@media (max-width: 768px) {
-			.hero {
-				padding: 6rem 0;
-			}
 			.hero h1 {
 				font-size: 2.5rem;
+			}
+			.hero p {
+				font-size: 1.2rem;
+			}
+			.navbar-brand {
+				font-size: 1.2rem;
 			}
 		}
 	</style>
@@ -154,42 +299,51 @@
 					<li class="nav-item">
 						<a class="nav-link" href="blog.html">Blog</a>
 					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="products.html">Products</a>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+							Products
+						</a>
+						<ul class="dropdown-menu bg-dark">
+							<li><a class="dropdown-item text-light" href="products.html#repair">Repair Services</a></li>
+							<li><a class="dropdown-item text-light" href="products.html#tops">Tops</a></li>
+							<li><a class="dropdown-item text-light" href="products.html#bottoms">Bottoms</a></li>
+							<li><a class="dropdown-item text-light" href="products.html#gold">Gold Jewelry</a></li>
+							<li><a class="dropdown-item text-light" href="products.html#silver">Silver Jewelry</a></li>
+						</ul>
 					</li>
 				</ul>
 			</div>
 		</div>
 	</nav>
 
-	<section class="hero text-center">
-		<div class="container">
-			<h1>Welcome to CaliforniaShack</h1>
-			<p class="lead mb-4">Your coastal partner in creating elegant and effective solutions</p>
-			<a href="products.html" class="btn btn-beach">Explore Our Products</a>
+	<section class="hero">
+		<div class="hero-content container">
+			<h1>CaliforniaShack<br>The Future of Y2K Fashion</h1>
+			<p>Where vintage meets cyberpunk. Redefining street style.</p>
+			<a href="products.html" class="btn btn-cyber">Shop Now</a>
 		</div>
 	</section>
 
 	<main class="container py-5">
 		<section>
-			<h2 class="text-center mb-5">Why Choose Us?</h2>
+			<h2 class="text-center mb-5">Why Choose Us</h2>
 			<div class="row">
 				<div class="col-md-4">
 					<div class="feature-card">
-						<h3>Quality First</h3>
-						<p>We prioritize quality in everything we do, ensuring the best results for our clients.</p>
+						<h3>Curated Selection</h3>
+						<p>Hand-picked vintage Y2K pieces that define the future of fashion.</p>
 					</div>
 				</div>
 				<div class="col-md-4">
 					<div class="feature-card">
-						<h3>Innovation</h3>
-						<p>Staying ahead of the curve with innovative solutions and cutting-edge technology.</p>
+						<h3>Digital Innovation</h3>
+						<p>Merging classic styles with modern tech for a unique shopping experience.</p>
 					</div>
 				</div>
 				<div class="col-md-4">
 					<div class="feature-card">
-						<h3>Customer Focus</h3>
-						<p>Your success is our success. We're dedicated to providing exceptional service.</p>
+						<h3>Sustainable Future</h3>
+						<p>Eco-conscious fashion that looks ahead while preserving the past.</p>
 					</div>
 				</div>
 			</div>
@@ -198,7 +352,13 @@
 
 	<footer class="text-center">
 		<div class="container">
-			<p class="mb-0">&copy; 2024 CaliforniaShack. All rights reserved.</p>
+			<div class="social-icons">
+				<a href="#"><i class="fab fa-instagram"></i></a>
+				<a href="#"><i class="fab fa-twitter"></i></a>
+				<a href="#"><i class="fab fa-tiktok"></i></a>
+				<a href="#"><i class="fab fa-facebook"></i></a>
+			</div>
+			<p class="mt-3 mb-0">&copy; 2024 CaliforniaShack. All rights reserved.</p>
 		</div>
 	</footer>
 
