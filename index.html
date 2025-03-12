@@ -5,48 +5,167 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Welcome to Simple Business</title>
-	<link rel="stylesheet" href="simple.css">
+	<!-- Bootstrap CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+	<!-- Custom CSS -->
+	<style>
+		:root {
+			--y2k-blue: #00ffff;
+			--y2k-pink: #ff69b4;
+			--y2k-purple: #9370db;
+			--y2k-yellow: #ffff00;
+		}
+
+		body {
+			background: white;
+			font-family: 'Arial', sans-serif;
+		}
+
+		.navbar {
+			background: linear-gradient(90deg, var(--y2k-blue), var(--y2k-purple));
+			border-bottom: 3px solid var(--y2k-yellow);
+		}
+
+		.navbar-brand, .nav-link {
+			color: white !important;
+			text-transform: uppercase;
+			font-weight: bold;
+			letter-spacing: 2px;
+		}
+
+		.hero {
+			background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7)),
+						url('https://placehold.co/1200x600/EEE/31343C');
+			padding: 6rem 0;
+			margin-top: 56px;
+			border-bottom: 3px solid var(--y2k-pink);
+		}
+
+		.hero h1 {
+			color: var(--y2k-purple);
+			font-size: 3.5rem;
+			font-weight: 800;
+			text-transform: uppercase;
+			text-shadow: 3px 3px var(--y2k-pink);
+		}
+
+		.btn-y2k {
+			background: linear-gradient(45deg, var(--y2k-blue), var(--y2k-purple));
+			color: white;
+			border: none;
+			padding: 10px 30px;
+			border-radius: 25px;
+			text-transform: uppercase;
+			font-weight: bold;
+			letter-spacing: 1px;
+			box-shadow: 3px 3px var(--y2k-pink);
+			transition: all 0.3s ease;
+		}
+
+		.btn-y2k:hover {
+			transform: translateY(-2px);
+			box-shadow: 5px 5px var(--y2k-pink);
+			color: var(--y2k-yellow);
+		}
+
+		.feature-card {
+			border: 2px solid var(--y2k-purple);
+			border-radius: 15px;
+			padding: 20px;
+			margin: 15px 0;
+			background: white;
+			box-shadow: 5px 5px var(--y2k-blue);
+			transition: all 0.3s ease;
+		}
+
+		.feature-card:hover {
+			transform: translateY(-5px);
+			box-shadow: 8px 8px var(--y2k-pink);
+		}
+
+		.feature-card h3 {
+			color: var(--y2k-purple);
+			font-weight: bold;
+			text-transform: uppercase;
+		}
+
+		footer {
+			background: linear-gradient(90deg, var(--y2k-purple), var(--y2k-blue));
+			color: white;
+			padding: 20px 0;
+			margin-top: 50px;
+		}
+	</style>
 </head>
 
 <body>
-	<header>
-		<nav>
-			<a href="index.html" class="current">Home</a>
-			<a href="about.html">About</a>
-			<a href="blog.html">Blog</a>
-			<a href="products.html">Products</a>
-		</nav>
-	</header>
+	<nav class="navbar navbar-expand-lg fixed-top">
+		<div class="container">
+			<a class="navbar-brand" href="index.html">Simple Business</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav ms-auto">
+					<li class="nav-item">
+						<a class="nav-link active" href="index.html">Home</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="about.html">About</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="blog.html">Blog</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="products.html">Products</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
 
-	<main>
-		<article class="hero">
-			<h1>Welcome to Simple Business</h1>
-			<p>Your partner in creating elegant and effective solutions</p>
-			<a href="products.html" class="button">Explore Our Products</a>
-			</article>
+	<section class="hero text-center">
+		<div class="container">
+			<h1 class="mb-4">Welcome to Simple Business</h1>
+			<p class="lead mb-4">Your partner in creating elegant and effective solutions</p>
+			<a href="products.html" class="btn btn-y2k">Explore Our Products</a>
+		</div>
+	</section>
 
-				<section>
-			<h2>Why Choose Us?</h2>
-			<div class="grid">
-				<article>
-					<h3>Quality First</h3>
-					<p>We prioritize quality in everything we do, ensuring the best results for our clients.</p>
-			</article>
-				<article>
-					<h3>Innovation</h3>
-					<p>Staying ahead of the curve with innovative solutions and cutting-edge technology.</p>
-			</article>
-				<article>
-					<h3>Customer Focus</h3>
-					<p>Your success is our success. We're dedicated to providing exceptional service.</p>
-			</article>
+	<main class="container py-5">
+		<section>
+			<h2 class="text-center mb-5" style="color: var(--y2k-purple); text-transform: uppercase; font-weight: bold;">Why Choose Us?</h2>
+			<div class="row">
+				<div class="col-md-4">
+					<div class="feature-card">
+						<h3>Quality First</h3>
+						<p>We prioritize quality in everything we do, ensuring the best results for our clients.</p>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="feature-card">
+						<h3>Innovation</h3>
+						<p>Staying ahead of the curve with innovative solutions and cutting-edge technology.</p>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="feature-card">
+						<h3>Customer Focus</h3>
+						<p>Your success is our success. We're dedicated to providing exceptional service.</p>
+					</div>
+				</div>
 			</div>
 		</section>
 	</main>
 
-	<footer>
-		<p>&copy; 2024 Simple Business. All rights reserved.</p>
+	<footer class="text-center">
+		<div class="container">
+			<p class="mb-0">&copy; 2024 Simple Business. All rights reserved.</p>
+		</div>
 	</footer>
+
+	<!-- Bootstrap JS and dependencies -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

@@ -5,70 +5,208 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products - Simple Business</title>
-    <link rel="stylesheet" href="simple.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --y2k-blue: #00ffff;
+            --y2k-pink: #ff69b4;
+            --y2k-purple: #9370db;
+            --y2k-yellow: #ffff00;
+        }
+
+        body {
+            background: white;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .navbar {
+            background: linear-gradient(90deg, var(--y2k-blue), var(--y2k-purple));
+            border-bottom: 3px solid var(--y2k-yellow);
+        }
+
+        .navbar-brand, .nav-link {
+            color: white !important;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .page-header {
+            margin-top: 76px;
+            padding: 3rem 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7));
+            border-bottom: 3px solid var(--y2k-pink);
+        }
+
+        .page-header h1 {
+            color: var(--y2k-purple);
+            font-weight: 800;
+            text-transform: uppercase;
+            text-shadow: 2px 2px var(--y2k-pink);
+        }
+
+        .product-card {
+            border: 2px solid var(--y2k-purple);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 15px 0;
+            background: white;
+            box-shadow: 5px 5px var(--y2k-blue);
+            transition: all 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 8px 8px var(--y2k-pink);
+        }
+
+        .product-card img {
+            border: 3px solid var(--y2k-purple);
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .product-card h2 {
+            color: var(--y2k-purple);
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .product-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .product-card li {
+            margin: 10px 0;
+            padding: 8px;
+            border-radius: 8px;
+            background: linear-gradient(45deg, rgba(0,255,255,0.1), rgba(147,112,219,0.1));
+        }
+
+        .btn-y2k {
+            background: linear-gradient(45deg, var(--y2k-blue), var(--y2k-purple));
+            color: white;
+            border: none;
+            padding: 10px 30px;
+            border-radius: 25px;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 1px;
+            box-shadow: 3px 3px var(--y2k-pink);
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin-top: 15px;
+        }
+
+        .btn-y2k:hover {
+            transform: translateY(-2px);
+            box-shadow: 5px 5px var(--y2k-pink);
+            color: var(--y2k-yellow);
+            text-decoration: none;
+        }
+
+        footer {
+            background: linear-gradient(90deg, var(--y2k-purple), var(--y2k-blue));
+            color: white;
+            padding: 20px 0;
+            margin-top: 50px;
+        }
+    </style>
 </head>
 
 <body>
-    <header>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="blog.html">Blog</a>
-            <a href="products.html" class="current">Products</a>
-        </nav>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Simple Business</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="products.html">Products</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container text-center">
+            <h1>Our Products</h1>
+            <p class="lead">Discover our range of innovative solutions designed to help your business grow.</p>
+        </div>
     </header>
 
-    <main>
-        <article>
-            <h1>Our Products</h1>
-            <p>Discover our range of innovative solutions designed to help your business grow.</p>
-        </article>
+    <main class="container py-5">
+        <div class="row">
+            <div class="col-md-4">
+                <article class="product-card">
+                    <img src="https://placehold.co/400x300/EEE/31343C" alt="Product 1" class="img-fluid">
+                    <h2>Enterprise Solution</h2>
+                    <p>A comprehensive business management system designed for large organizations.</p>
+                    <p><strong>Key Features:</strong></p>
+                    <ul>
+                        <li>Advanced Analytics</li>
+                        <li>Team Collaboration</li>
+                        <li>Cloud Integration</li>
+                    </ul>
+                    <a href="#" class="btn-y2k">Learn More</a>
+                </article>
+            </div>
 
-        <section class="grid">
-            <article class="product-card">
-                <img src="https://placehold.co/400x300/EEE/31343C" alt="Product 1" style="width: 100%; height: auto;">
-                <h2>Enterprise Solution</h2>
-                <p>A comprehensive business management system designed for large organizations.</p>
-                <p><strong>Key Features:</strong></p>
-                <ul>
-                    <li>Advanced Analytics</li>
-                    <li>Team Collaboration</li>
-                    <li>Cloud Integration</li>
-                </ul>
-                <a href="#" class="button">Learn More</a>
-            </article>
+            <div class="col-md-4">
+                <article class="product-card">
+                    <img src="https://placehold.co/400x300/EEE/31343C" alt="Product 2" class="img-fluid">
+                    <h2>Business Suite</h2>
+                    <p>Perfect solution for small to medium-sized businesses looking to optimize their operations.</p>
+                    <p><strong>Key Features:</strong></p>
+                    <ul>
+                        <li>Project Management</li>
+                        <li>Resource Planning</li>
+                        <li>Performance Tracking</li>
+                    </ul>
+                    <a href="#" class="btn-y2k">Learn More</a>
+                </article>
+            </div>
 
-            <article class="product-card">
-                <img src="https://placehold.co/400x300/EEE/31343C" alt="Product 2" style="width: 100%; height: auto;">
-                <h2>Business Suite</h2>
-                <p>Perfect solution for small to medium-sized businesses looking to optimize their operations.</p>
-                <p><strong>Key Features:</strong></p>
-                <ul>
-                    <li>Project Management</li>
-                    <li>Resource Planning</li>
-                    <li>Performance Tracking</li>
-                </ul>
-                <a href="#" class="button">Learn More</a>
-            </article>
-
-            <article class="product-card">
-                <img src="https://placehold.co/400x300/EEE/31343C" alt="Product 3" style="width: 100%; height: auto;">
-                <h2>Starter Pack</h2>
-                <p>Essential tools for startups and small businesses just beginning their journey.</p>
-                <p><strong>Key Features:</strong></p>
-                <ul>
-                    <li>Basic Analytics</li>
-                    <li>Task Management</li>
-                    <li>Email Integration</li>
-                </ul>
-                <a href="#" class="button">Learn More</a>
-            </article>
-        </section>
+            <div class="col-md-4">
+                <article class="product-card">
+                    <img src="https://placehold.co/400x300/EEE/31343C" alt="Product 3" class="img-fluid">
+                    <h2>Starter Pack</h2>
+                    <p>Essential tools for startups and small businesses just beginning their journey.</p>
+                    <p><strong>Key Features:</strong></p>
+                    <ul>
+                        <li>Basic Analytics</li>
+                        <li>Task Management</li>
+                        <li>Email Integration</li>
+                    </ul>
+                    <a href="#" class="btn-y2k">Learn More</a>
+                </article>
+            </div>
+        </div>
     </main>
 
-    <footer>
-        <p>&copy; 2024 Simple Business. All rights reserved.</p>
+    <footer class="text-center">
+        <div class="container">
+            <p class="mb-0">&copy; 2024 Simple Business. All rights reserved.</p>
+        </div>
     </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html> 

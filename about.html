@@ -5,50 +5,161 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - Simple Business</title>
-    <link rel="stylesheet" href="simple.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --y2k-blue: #00ffff;
+            --y2k-pink: #ff69b4;
+            --y2k-purple: #9370db;
+            --y2k-yellow: #ffff00;
+        }
+
+        body {
+            background: white;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .navbar {
+            background: linear-gradient(90deg, var(--y2k-blue), var(--y2k-purple));
+            border-bottom: 3px solid var(--y2k-yellow);
+        }
+
+        .navbar-brand, .nav-link {
+            color: white !important;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .page-header {
+            margin-top: 76px;
+            padding: 3rem 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7));
+            border-bottom: 3px solid var(--y2k-pink);
+        }
+
+        .page-header h1 {
+            color: var(--y2k-purple);
+            font-weight: 800;
+            text-transform: uppercase;
+            text-shadow: 2px 2px var(--y2k-pink);
+        }
+
+        .about-image {
+            border: 3px solid var(--y2k-purple);
+            border-radius: 15px;
+            box-shadow: 8px 8px var(--y2k-blue);
+            transition: all 0.3s ease;
+        }
+
+        .about-image:hover {
+            transform: translateY(-5px);
+            box-shadow: 10px 10px var(--y2k-pink);
+        }
+
+        .values-card {
+            border: 2px solid var(--y2k-purple);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 15px 0;
+            background: white;
+            box-shadow: 5px 5px var(--y2k-blue);
+        }
+
+        .values-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .values-card li {
+            margin: 15px 0;
+            padding: 10px;
+            border-radius: 10px;
+            background: linear-gradient(45deg, rgba(0,255,255,0.1), rgba(147,112,219,0.1));
+        }
+
+        .values-card strong {
+            color: var(--y2k-purple);
+            text-transform: uppercase;
+        }
+
+        footer {
+            background: linear-gradient(90deg, var(--y2k-purple), var(--y2k-blue));
+            color: white;
+            padding: 20px 0;
+            margin-top: 50px;
+        }
+    </style>
 </head>
 
 <body>
-    <header>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="about.html" class="current">About</a>
-            <a href="blog.html">Blog</a>
-            <a href="products.html">Products</a>
-        </nav>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Simple Business</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="products.html">Products</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container text-center">
+            <h1>About Us</h1>
+            <p class="lead">Welcome to Simple Business, where we believe in creating elegant solutions for complex problems.</p>
+        </div>
     </header>
 
-    <main>
-        <article>
-            <h1>About Us</h1>
-            <p>Welcome to Simple Business, where we believe in creating elegant solutions for complex problems.</p>
-        </article>
-
-        <section class="grid">
-            <div>
-                <img src="https://placehold.co/600x400/EEE/31343C" alt="Our Team" style="width: 100%; height: auto;">
+    <main class="container py-5">
+        <section class="row align-items-center mb-5">
+            <div class="col-md-6 mb-4 mb-md-0">
+                <img src="https://placehold.co/600x400/EEE/31343C" alt="Our Team" class="img-fluid about-image">
             </div>
-            <div>
-                <h2>Our Story</h2>
+            <div class="col-md-6">
+                <h2 class="mb-4" style="color: var(--y2k-purple); text-transform: uppercase; font-weight: bold;">Our Story</h2>
                 <p>Founded in 2024, Simple Business has been at the forefront of innovation and quality service. We're dedicated to providing our clients with the best solutions that meet their unique needs.</p>
                 <p>Our team of experts brings years of experience and passion to every project, ensuring that we deliver excellence in everything we do.</p>
             </div>
         </section>
 
         <section>
-            <h2>Our Values</h2>
-            <ul>
-                <li><strong>Excellence</strong> - We strive for excellence in every project</li>
-                <li><strong>Innovation</strong> - We embrace new ideas and technologies</li>
-                <li><strong>Integrity</strong> - We maintain the highest ethical standards</li>
-                <li><strong>Collaboration</strong> - We work together to achieve great results</li>
-            </ul>
+            <div class="values-card">
+                <h2 class="text-center mb-4" style="color: var(--y2k-purple); text-transform: uppercase; font-weight: bold;">Our Values</h2>
+                <ul>
+                    <li><strong>Excellence</strong> - We strive for excellence in every project</li>
+                    <li><strong>Innovation</strong> - We embrace new ideas and technologies</li>
+                    <li><strong>Integrity</strong> - We maintain the highest ethical standards</li>
+                    <li><strong>Collaboration</strong> - We work together to achieve great results</li>
+                </ul>
+            </div>
         </section>
     </main>
 
-    <footer>
-        <p>&copy; 2024 Simple Business. All rights reserved.</p>
+    <footer class="text-center">
+        <div class="container">
+            <p class="mb-0">&copy; 2024 Simple Business. All rights reserved.</p>
+        </div>
     </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html> 
