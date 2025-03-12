@@ -8,241 +8,159 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- Custom CSS -->
     <style>
         :root {
-            --matrix-black: #000000;
-            --matrix-green: #00ff41;
-            --matrix-dim-green: #003b00;
-            --matrix-silver: #c0c0c0;
-            --matrix-dark-silver: #333333;
-            --glow-shadow: 0 0 10px var(--matrix-green), 0 0 20px var(--matrix-green), 0 0 30px var(--matrix-green);
-        }
-
-        @keyframes glowPulse {
-            0% {
-                box-shadow: 0 0 5px var(--matrix-green);
-            }
-            50% {
-                box-shadow: 0 0 20px var(--matrix-green);
-            }
-            100% {
-                box-shadow: 0 0 5px var(--matrix-green);
-            }
-        }
-
-        @keyframes textGlow {
-            0% {
-                text-shadow: 0 0 5px var(--matrix-green);
-            }
-            50% {
-                text-shadow: 0 0 15px var(--matrix-green);
-            }
-            100% {
-                text-shadow: 0 0 5px var(--matrix-green);
-            }
-        }
-
-        @keyframes scanline {
-            0% {
-                transform: translateY(-100%);
-            }
-            100% {
-                transform: translateY(100%);
-            }
+            --cs-white: #ffffff;
+            --cs-black: #000000;
+            --cs-grey-100: #f8f9fa;
+            --cs-grey-200: #e9ecef;
+            --cs-grey-300: #dee2e6;
+            --cs-grey-600: #6c757d;
+            --cs-grey-900: #212529;
         }
 
         body {
-            background-color: var(--matrix-black);
-            font-family: 'Poppins', sans-serif;
-            color: var(--matrix-silver);
+            background-color: var(--cs-white);
+            font-family: 'Montserrat', sans-serif;
+            color: var(--cs-grey-900);
             line-height: 1.8;
-            position: relative;
-        }
-
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(0deg, 
-                rgba(0, 0, 0, 0.97), 
-                rgba(0, 0, 0, 0.9)
-            );
-            z-index: -1;
         }
 
         h1, h2, h3, h4, h5, h6 {
-            font-family: 'Orbitron', sans-serif;
-            color: var(--matrix-green);
-            text-transform: uppercase;
-            letter-spacing: 2px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            letter-spacing: -0.5px;
         }
 
         .navbar {
-            background: rgba(0, 0, 0, 0.9);
-            border-bottom: 1px solid var(--matrix-green);
+            background: var(--cs-white);
             padding: 1rem 0;
-            transition: all 0.3s ease;
+            border-bottom: 1px solid var(--cs-grey-200);
         }
 
         .navbar-brand {
-            font-family: 'Orbitron', sans-serif;
-            color: var(--matrix-green) !important;
-            font-weight: 700;
-            font-size: 1.5rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            transition: all 0.3s ease;
+            padding: 0;
         }
 
-        .navbar-brand:hover {
-            text-shadow: var(--glow-shadow);
+        .navbar-brand img {
+            height: 40px;
+            width: auto;
         }
 
         .nav-link {
-            color: var(--matrix-silver) !important;
-            font-family: 'Orbitron', sans-serif;
+            color: var(--cs-grey-900) !important;
+            font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            margin: 0 1rem;
-            position: relative;
-            transition: all 0.3s ease;
+            letter-spacing: 1px;
+            padding: 0.5rem 1.5rem !important;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
         }
 
         .nav-link:hover {
-            color: var(--matrix-green) !important;
-            text-shadow: var(--glow-shadow);
+            color: var(--cs-grey-600) !important;
         }
 
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--matrix-green);
-            transition: width 0.3s ease;
+        .dropdown-menu {
+            border: 1px solid var(--cs-grey-200);
+            border-radius: 0;
+            padding: 0.5rem 0;
         }
 
-        .nav-link:hover::after {
-            width: 100%;
-            box-shadow: var(--glow-shadow);
+        .dropdown-item {
+            font-weight: 500;
+            padding: 0.5rem 1.5rem;
+            color: var(--cs-grey-900);
+        }
+
+        .dropdown-item:hover {
+            background-color: var(--cs-grey-100);
         }
 
         .page-header {
             margin-top: 76px;
-            padding: 6rem 0;
-            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9)),
-                        url('https://placehold.co/1200x400/003b00/FFFFFF');
-            position: relative;
-            border-bottom: 1px solid var(--matrix-green);
+            padding: 4rem 0;
+            background-color: var(--cs-grey-100);
+            border-bottom: 1px solid var(--cs-grey-200);
         }
 
         .page-header h1 {
-            animation: textGlow 2s infinite;
-            font-weight: 700;
+            color: var(--cs-black);
+            font-weight: 800;
             margin-bottom: 1rem;
         }
 
         .blog-card {
-            background: rgba(0, 0, 0, 0.7);
-            border: 1px solid var(--matrix-green);
-            border-radius: 5px;
+            background: var(--cs-white);
+            border: 1px solid var(--cs-grey-200);
+            border-radius: 0;
             overflow: hidden;
             margin-bottom: 30px;
-            position: relative;
             transition: all 0.3s ease;
-        }
-
-        .blog-card::before {
-            content: '';
-            position: absolute;
-            top: -100%;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(
-                transparent,
-                rgba(0, 255, 65, 0.1)
-            );
-            animation: scanline 2s linear infinite;
-            pointer-events: none;
         }
 
         .blog-card:hover {
             transform: translateY(-5px);
-            box-shadow: var(--glow-shadow);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
         .blog-card img {
             height: 200px;
             object-fit: cover;
-            border-bottom: 1px solid var(--matrix-green);
-            filter: brightness(0.8) sepia(0.3) hue-rotate(55deg);
-            transition: all 0.3s ease;
-        }
-
-        .blog-card:hover img {
-            filter: brightness(1) sepia(0.4) hue-rotate(55deg);
+            border-bottom: 1px solid var(--cs-grey-200);
         }
 
         .blog-card .card-body {
-            padding: 25px;
-            position: relative;
-            z-index: 1;
+            padding: 1.5rem;
         }
 
         .blog-card .card-title {
-            color: var(--matrix-green);
+            color: var(--cs-black);
             font-weight: 700;
-            margin-bottom: 15px;
-            font-family: 'Orbitron', sans-serif;
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
         }
 
         .blog-card .card-text {
-            color: var(--matrix-silver);
-            margin-bottom: 20px;
-        }
-
-        .blog-card .btn {
-            background: transparent;
-            color: var(--matrix-green);
-            border: 1px solid var(--matrix-green);
-            padding: 8px 25px;
-            border-radius: 25px;
-            font-family: 'Orbitron', sans-serif;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-        }
-
-        .blog-card .btn:hover {
-            background: var(--matrix-green);
-            color: var(--matrix-black);
-            transform: translateY(-2px);
-            box-shadow: var(--glow-shadow);
+            color: var(--cs-grey-600);
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
         }
 
         .blog-meta {
-            color: var(--matrix-green);
-            font-size: 0.9rem;
-            margin-bottom: 15px;
-            font-family: 'Orbitron', sans-serif;
+            color: var(--cs-grey-600);
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
             letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .btn-primary {
+            background-color: var(--cs-black);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 0;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--cs-grey-900);
+            transform: translateY(-2px);
         }
 
         footer {
-            background: rgba(0, 0, 0, 0.9);
-            border-top: 1px solid var(--matrix-green);
-            color: var(--matrix-silver);
-            padding: 2rem 0;
+            background: var(--cs-white);
+            border-top: 1px solid var(--cs-grey-200);
+            padding: 3rem 0;
+            color: var(--cs-grey-900);
         }
 
         .social-icons {
@@ -250,26 +168,25 @@
         }
 
         .social-icons a {
-            color: var(--matrix-silver);
+            color: var(--cs-grey-600);
             margin: 0 1rem;
-            font-size: 1.5rem;
-            transition: all 0.3s ease;
+            font-size: 1.25rem;
+            transition: color 0.3s ease;
         }
 
         .social-icons a:hover {
-            color: var(--matrix-green);
-            text-shadow: var(--glow-shadow);
+            color: var(--cs-black);
         }
 
         @media (max-width: 768px) {
             .page-header {
-                padding: 4rem 0;
+                padding: 3rem 0;
             }
             .page-header h1 {
                 font-size: 2rem;
             }
-            .navbar-brand {
-                font-size: 1.2rem;
+            .navbar-brand img {
+                height: 30px;
             }
             .blog-card img {
                 height: 180px;
@@ -281,31 +198,33 @@
 <body>
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="index.html">CaliforniaShack</a>
+            <a class="navbar-brand" href="index.html">
+                <img src="https://placehold.co/120x40/000000/FFFFFF?text=CS+Bear" alt="CaliforniaShack">
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
+                        <a class="nav-link" href="products.html#tops">Tops</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="about.html">About</a>
+                        <a class="nav-link" href="products.html#bottoms">Bottoms</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="blog.html">Blog</a>
+                        <a class="nav-link" href="products.html#gold">Gold</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="products.html#silver">Silver</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
-                            Products
+                        <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown">
+                            Services
                         </a>
-                        <ul class="dropdown-menu bg-dark">
-                            <li><a class="dropdown-item text-light" href="products.html#repair">Repair Services</a></li>
-                            <li><a class="dropdown-item text-light" href="products.html#tops">Tops</a></li>
-                            <li><a class="dropdown-item text-light" href="products.html#bottoms">Bottoms</a></li>
-                            <li><a class="dropdown-item text-light" href="products.html#gold">Gold Jewelry</a></li>
-                            <li><a class="dropdown-item text-light" href="products.html#silver">Silver Jewelry</a></li>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="products.html#repair">Repairs</a></li>
+                            <li><a class="dropdown-item" href="products.html#consignment">Consignment</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -315,8 +234,8 @@
 
     <header class="page-header">
         <div class="container text-center">
-            <h1>Digital Fashion Feed</h1>
-            <p class="lead">Exploring the Matrix of Y2K Style and Future Fashion</p>
+            <h1>Latest Updates</h1>
+            <p class="lead">News and Stories from CaliforniaShack</p>
         </div>
     </header>
 
@@ -324,34 +243,34 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="blog-card">
-                    <img src="https://placehold.co/400x200/003b00/FFFFFF" alt="Blog Post 1" class="card-img-top">
+                    <img src="https://placehold.co/400x200" alt="Blog Post 1" class="card-img-top">
                     <div class="card-body">
-                        <div class="blog-meta">15.06.2024 | STYLE_MATRIX</div>
-                        <h3 class="card-title">Y2K Revival: Digital Dawn</h3>
-                        <p class="card-text">Exploring the resurgence of Y2K fashion and its influence on contemporary digital aesthetics.</p>
-                        <a href="#" class="btn">Enter</a>
+                        <div class="blog-meta">June 15, 2024 | Vintage Fashion</div>
+                        <h3 class="card-title">The Return of Y2K Fashion</h3>
+                        <p class="card-text">Exploring the resurgence of Y2K fashion and its influence on contemporary style trends.</p>
+                        <a href="#" class="btn btn-primary">Read More</a>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="blog-card">
-                    <img src="https://placehold.co/400x200/003b00/FFFFFF" alt="Blog Post 2" class="card-img-top">
+                    <img src="https://placehold.co/400x200" alt="Blog Post 2" class="card-img-top">
                     <div class="card-body">
-                        <div class="blog-meta">10.06.2024 | CYBER_STYLE</div>
-                        <h3 class="card-title">Future Vintage</h3>
-                        <p class="card-text">Where retro meets tomorrow: The evolution of cyberpunk fashion in the modern era.</p>
-                        <a href="#" class="btn">Enter</a>
+                        <div class="blog-meta">June 10, 2024 | Care Guide</div>
+                        <h3 class="card-title">Vintage Care Tips</h3>
+                        <p class="card-text">Essential tips for maintaining and preserving your vintage clothing collection.</p>
+                        <a href="#" class="btn btn-primary">Read More</a>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="blog-card">
-                    <img src="https://placehold.co/400x200/003b00/FFFFFF" alt="Blog Post 3" class="card-img-top">
+                    <img src="https://placehold.co/400x200" alt="Blog Post 3" class="card-img-top">
                     <div class="card-body">
-                        <div class="blog-meta">05.06.2024 | TECH_WEAR</div>
-                        <h3 class="card-title">Digital Threads</h3>
-                        <p class="card-text">The intersection of technology and fashion in the post-Y2K landscape.</p>
-                        <a href="#" class="btn">Enter</a>
+                        <div class="blog-meta">June 5, 2024 | Style Guide</div>
+                        <h3 class="card-title">Mixing Vintage & Modern</h3>
+                        <p class="card-text">How to create contemporary looks with vintage pieces from different eras.</p>
+                        <a href="#" class="btn btn-primary">Read More</a>
                     </div>
                 </div>
             </div>

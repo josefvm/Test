@@ -8,298 +8,203 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- Custom CSS -->
     <style>
         :root {
-            --matrix-black: #000000;
-            --matrix-green: #00ff41;
-            --matrix-dim-green: #003b00;
-            --matrix-silver: #c0c0c0;
-            --matrix-dark-silver: #333333;
-            --glow-shadow: 0 0 10px var(--matrix-green), 0 0 20px var(--matrix-green), 0 0 30px var(--matrix-green);
-        }
-
-        @keyframes glowPulse {
-            0% {
-                box-shadow: 0 0 5px var(--matrix-green);
-            }
-            50% {
-                box-shadow: 0 0 20px var(--matrix-green);
-            }
-            100% {
-                box-shadow: 0 0 5px var(--matrix-green);
-            }
-        }
-
-        @keyframes textGlow {
-            0% {
-                text-shadow: 0 0 5px var(--matrix-green);
-            }
-            50% {
-                text-shadow: 0 0 15px var(--matrix-green);
-            }
-            100% {
-                text-shadow: 0 0 5px var(--matrix-green);
-            }
-        }
-
-        @keyframes hologramEffect {
-            0% {
-                opacity: 0.8;
-                transform: scale(1);
-            }
-            50% {
-                opacity: 1;
-                transform: scale(1.02);
-            }
-            100% {
-                opacity: 0.8;
-                transform: scale(1);
-            }
+            --cs-white: #ffffff;
+            --cs-black: #000000;
+            --cs-grey-100: #f8f9fa;
+            --cs-grey-200: #e9ecef;
+            --cs-grey-300: #dee2e6;
+            --cs-grey-600: #6c757d;
+            --cs-grey-900: #212529;
         }
 
         body {
-            background-color: var(--matrix-black);
-            font-family: 'Poppins', sans-serif;
-            color: var(--matrix-silver);
+            background-color: var(--cs-white);
+            font-family: 'Montserrat', sans-serif;
+            color: var(--cs-grey-900);
             line-height: 1.8;
-            position: relative;
-        }
-
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(0deg, 
-                rgba(0, 0, 0, 0.97), 
-                rgba(0, 0, 0, 0.9)
-            );
-            z-index: -1;
         }
 
         h1, h2, h3, h4, h5, h6 {
-            font-family: 'Orbitron', sans-serif;
-            color: var(--matrix-green);
-            text-transform: uppercase;
-            letter-spacing: 2px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            letter-spacing: -0.5px;
         }
 
         .navbar {
-            background: rgba(0, 0, 0, 0.9);
-            border-bottom: 1px solid var(--matrix-green);
+            background: var(--cs-white);
             padding: 1rem 0;
-            transition: all 0.3s ease;
+            border-bottom: 1px solid var(--cs-grey-200);
         }
 
         .navbar-brand {
-            font-family: 'Orbitron', sans-serif;
-            color: var(--matrix-green) !important;
-            font-weight: 700;
-            font-size: 1.5rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            transition: all 0.3s ease;
+            padding: 0;
         }
 
-        .navbar-brand:hover {
-            text-shadow: var(--glow-shadow);
+        .navbar-brand img {
+            height: 40px;
+            width: auto;
         }
 
         .nav-link {
-            color: var(--matrix-silver) !important;
-            font-family: 'Orbitron', sans-serif;
+            color: var(--cs-grey-900) !important;
+            font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            margin: 0 1rem;
-            position: relative;
-            transition: all 0.3s ease;
+            letter-spacing: 1px;
+            padding: 0.5rem 1.5rem !important;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
         }
 
         .nav-link:hover {
-            color: var(--matrix-green) !important;
-            text-shadow: var(--glow-shadow);
+            color: var(--cs-grey-600) !important;
         }
 
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--matrix-green);
-            transition: width 0.3s ease;
+        .dropdown-menu {
+            border: 1px solid var(--cs-grey-200);
+            border-radius: 0;
+            padding: 0.5rem 0;
         }
 
-        .nav-link:hover::after {
-            width: 100%;
-            box-shadow: var(--glow-shadow);
+        .dropdown-item {
+            font-weight: 500;
+            padding: 0.5rem 1.5rem;
+            color: var(--cs-grey-900);
+        }
+
+        .dropdown-item:hover {
+            background-color: var(--cs-grey-100);
         }
 
         .page-header {
             margin-top: 76px;
-            padding: 6rem 0;
-            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9)),
-                        url('https://placehold.co/1200x400/003b00/FFFFFF');
-            position: relative;
-            border-bottom: 1px solid var(--matrix-green);
+            padding: 4rem 0;
+            background-color: var(--cs-grey-100);
+            border-bottom: 1px solid var(--cs-grey-200);
         }
 
         .page-header h1 {
-            animation: textGlow 2s infinite;
-            font-weight: 700;
+            color: var(--cs-black);
+            font-weight: 800;
             margin-bottom: 1rem;
         }
 
         .product-filters {
-            margin-bottom: 2rem;
+            margin: 2rem 0;
             text-align: center;
         }
 
         .filter-btn {
-            background: transparent;
-            color: var(--matrix-silver);
-            border: 1px solid var(--matrix-green);
-            padding: 8px 20px;
-            margin: 5px;
-            border-radius: 25px;
-            font-family: 'Orbitron', sans-serif;
+            background: var(--cs-white);
+            color: var(--cs-grey-900);
+            border: 1px solid var(--cs-grey-300);
+            padding: 0.75rem 1.5rem;
+            margin: 0.25rem;
+            border-radius: 0;
+            font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1px;
             transition: all 0.3s ease;
         }
 
         .filter-btn:hover, .filter-btn.active {
-            background: var(--matrix-green);
-            color: var(--matrix-black);
-            transform: translateY(-2px);
-            box-shadow: var(--glow-shadow);
+            background: var(--cs-black);
+            color: var(--cs-white);
+            border-color: var(--cs-black);
         }
 
         .product-card {
-            background: rgba(0, 0, 0, 0.7);
-            border: 1px solid var(--matrix-green);
-            border-radius: 5px;
+            background: var(--cs-white);
+            border: 1px solid var(--cs-grey-200);
+            border-radius: 0;
             overflow: hidden;
             margin-bottom: 30px;
-            position: relative;
             transition: all 0.3s ease;
-        }
-
-        .product-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(
-                45deg,
-                transparent,
-                rgba(0, 255, 65, 0.1),
-                transparent
-            );
-            animation: hologramEffect 3s infinite;
-            pointer-events: none;
         }
 
         .product-card:hover {
             transform: translateY(-5px);
-            box-shadow: var(--glow-shadow);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
         .product-card img {
             height: 300px;
             object-fit: cover;
-            border-bottom: 1px solid var(--matrix-green);
-            filter: brightness(0.8) sepia(0.3) hue-rotate(55deg);
-            transition: all 0.3s ease;
-        }
-
-        .product-card:hover img {
-            filter: brightness(1) sepia(0.4) hue-rotate(55deg);
+            border-bottom: 1px solid var(--cs-grey-200);
         }
 
         .product-card .card-body {
-            padding: 25px;
-            position: relative;
-            z-index: 1;
+            padding: 1.5rem;
         }
 
         .product-card .card-title {
-            color: var(--matrix-green);
+            color: var(--cs-black);
             font-weight: 700;
-            margin-bottom: 15px;
-            font-family: 'Orbitron', sans-serif;
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
         }
 
         .product-card .card-text {
-            color: var(--matrix-silver);
-            margin-bottom: 20px;
+            color: var(--cs-grey-600);
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
         }
 
         .product-price {
-            color: var(--matrix-green);
+            color: var(--cs-black);
             font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 20px;
-            font-family: 'Orbitron', sans-serif;
-            animation: textGlow 2s infinite;
-        }
-
-        .product-card .btn {
-            background: transparent;
-            color: var(--matrix-green);
-            border: 1px solid var(--matrix-green);
-            padding: 10px 25px;
-            border-radius: 25px;
-            font-family: 'Orbitron', sans-serif;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-            width: 100%;
-        }
-
-        .product-card .btn:hover {
-            background: var(--matrix-green);
-            color: var(--matrix-black);
-            transform: translateY(-2px);
-            box-shadow: var(--glow-shadow);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
         }
 
         .product-features {
             list-style: none;
             padding-left: 0;
-            margin-bottom: 20px;
+            margin-bottom: 1.5rem;
         }
 
         .product-features li {
-            margin-bottom: 10px;
-            padding-left: 25px;
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
             position: relative;
-            color: var(--matrix-silver);
+            color: var(--cs-grey-600);
+            font-size: 0.9rem;
         }
 
         .product-features li:before {
-            content: ">";
+            content: "•";
             position: absolute;
             left: 0;
-            top: 0;
-            color: var(--matrix-green);
-            font-family: 'Orbitron', sans-serif;
+            color: var(--cs-black);
+        }
+
+        .btn-primary {
+            background-color: var(--cs-black);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 0;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--cs-grey-900);
+            transform: translateY(-2px);
         }
 
         footer {
-            background: rgba(0, 0, 0, 0.9);
-            border-top: 1px solid var(--matrix-green);
-            color: var(--matrix-silver);
-            padding: 2rem 0;
+            background: var(--cs-white);
+            border-top: 1px solid var(--cs-grey-200);
+            padding: 3rem 0;
+            color: var(--cs-grey-900);
         }
 
         .social-icons {
@@ -307,33 +212,32 @@
         }
 
         .social-icons a {
-            color: var(--matrix-silver);
+            color: var(--cs-grey-600);
             margin: 0 1rem;
-            font-size: 1.5rem;
-            transition: all 0.3s ease;
+            font-size: 1.25rem;
+            transition: color 0.3s ease;
         }
 
         .social-icons a:hover {
-            color: var(--matrix-green);
-            text-shadow: var(--glow-shadow);
+            color: var(--cs-black);
         }
 
         @media (max-width: 768px) {
             .page-header {
-                padding: 4rem 0;
+                padding: 3rem 0;
             }
             .page-header h1 {
                 font-size: 2rem;
             }
-            .navbar-brand {
-                font-size: 1.2rem;
+            .navbar-brand img {
+                height: 30px;
             }
             .product-card img {
                 height: 250px;
             }
             .filter-btn {
-                padding: 6px 15px;
-                font-size: 0.9rem;
+                padding: 0.5rem 1rem;
+                font-size: 0.8rem;
             }
         }
     </style>
@@ -342,31 +246,33 @@
 <body>
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="index.html">CaliforniaShack</a>
+            <a class="navbar-brand" href="index.html">
+                <img src="https://placehold.co/120x40/000000/FFFFFF?text=CS+Bear" alt="CaliforniaShack">
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
+                        <a class="nav-link" href="#tops">Tops</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="about.html">About</a>
+                        <a class="nav-link" href="#bottoms">Bottoms</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="blog.html">Blog</a>
+                        <a class="nav-link" href="#gold">Gold</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#silver">Silver</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
-                            Products
+                        <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown">
+                            Services
                         </a>
-                        <ul class="dropdown-menu bg-dark">
-                            <li><a class="dropdown-item text-light" href="#repair">Repair Services</a></li>
-                            <li><a class="dropdown-item text-light" href="#tops">Tops</a></li>
-                            <li><a class="dropdown-item text-light" href="#bottoms">Bottoms</a></li>
-                            <li><a class="dropdown-item text-light" href="#gold">Gold Jewelry</a></li>
-                            <li><a class="dropdown-item text-light" href="#silver">Silver Jewelry</a></li>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#repair">Repairs</a></li>
+                            <li><a class="dropdown-item" href="#consignment">Consignment</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -376,15 +282,15 @@
 
     <header class="page-header">
         <div class="container text-center">
-            <h1>Digital Wardrobe</h1>
-            <p class="lead">Enter the Matrix of Y2K Fashion</p>
+            <h1>Our Collection</h1>
+            <p class="lead">Quality Vintage Pieces & Professional Services</p>
         </div>
     </header>
 
     <main class="container py-5">
         <div class="product-filters">
             <button class="filter-btn active" data-filter="all">All</button>
-            <button class="filter-btn" data-filter="repair">Repair Services</button>
+            <button class="filter-btn" data-filter="repair">Services</button>
             <button class="filter-btn" data-filter="tops">Tops</button>
             <button class="filter-btn" data-filter="bottoms">Bottoms</button>
             <button class="filter-btn" data-filter="jewelry">Jewelry</button>
@@ -393,49 +299,49 @@
         <div class="row">
             <div class="col-md-4" id="repair">
                 <div class="product-card">
-                    <img src="https://placehold.co/400x300/003b00/FFFFFF" alt="Product 1" class="card-img-top">
+                    <img src="https://placehold.co/400x300" alt="Repair Services" class="card-img-top">
                     <div class="card-body">
-                        <h3 class="card-title">Tech Repair Service</h3>
-                        <p class="card-text">Professional restoration of your vintage Y2K pieces.</p>
+                        <h3 class="card-title">Professional Repair Service</h3>
+                        <p class="card-text">Expert restoration and repair for vintage clothing and accessories.</p>
                         <ul class="product-features">
-                            <li>Expert restoration</li>
-                            <li>Authentic materials</li>
-                            <li>Quick turnaround</li>
+                            <li>Detailed Assessment</li>
+                            <li>Quality Materials</li>
+                            <li>Fast Turnaround</li>
                         </ul>
-                        <div class="product-price">From $49.99</div>
-                        <a href="#" class="btn">Initialize</a>
+                        <div class="product-price">Starting at $49.99</div>
+                        <a href="#" class="btn btn-primary">Book Service</a>
                     </div>
                 </div>
             </div>
             <div class="col-md-4" id="tops">
                 <div class="product-card">
-                    <img src="https://placehold.co/400x300/003b00/FFFFFF" alt="Product 2" class="card-img-top">
+                    <img src="https://placehold.co/400x300" alt="Vintage Top" class="card-img-top">
                     <div class="card-body">
-                        <h3 class="card-title">Matrix Hoodie</h3>
-                        <p class="card-text">Vintage Y2K oversized hoodie with cyber aesthetics.</p>
+                        <h3 class="card-title">Vintage Y2K Hoodie</h3>
+                        <p class="card-text">Authentic oversized hoodie from the early 2000s.</p>
                         <ul class="product-features">
-                            <li>Authentic Y2K</li>
-                            <li>Reflective details</li>
-                            <li>Tech fabric</li>
+                            <li>Original Y2K Era</li>
+                            <li>Excellent Condition</li>
+                            <li>Size L/XL</li>
                         </ul>
                         <div class="product-price">$89.99</div>
-                        <a href="#" class="btn">Initialize</a>
+                        <a href="#" class="btn btn-primary">Add to Cart</a>
                     </div>
                 </div>
             </div>
             <div class="col-md-4" id="bottoms">
                 <div class="product-card">
-                    <img src="https://placehold.co/400x300/003b00/FFFFFF" alt="Product 3" class="card-img-top">
+                    <img src="https://placehold.co/400x300" alt="Vintage Pants" class="card-img-top">
                     <div class="card-body">
-                        <h3 class="card-title">Cyber Cargo</h3>
-                        <p class="card-text">Y2K-inspired cargo pants with digital accents.</p>
+                        <h3 class="card-title">Vintage Cargo Pants</h3>
+                        <p class="card-text">Classic Y2K cargo pants with original details.</p>
                         <ul class="product-features">
-                            <li>Multiple pockets</li>
-                            <li>Tech details</li>
-                            <li>Adjustable fit</li>
+                            <li>Authentic Vintage</li>
+                            <li>Multiple Pockets</li>
+                            <li>Size 32/34</li>
                         </ul>
                         <div class="product-price">$79.99</div>
-                        <a href="#" class="btn">Initialize</a>
+                        <a href="#" class="btn btn-primary">Add to Cart</a>
                     </div>
                 </div>
             </div>

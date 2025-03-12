@@ -4,251 +4,183 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>CaliforniaShack - The Future of Y2K Fashion</title>
+	<title>CaliforniaShack - Clothing Resale and Repair Company</title>
 	<!-- Bootstrap CSS -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 	<!-- Google Fonts -->
-	<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 	<!-- Font Awesome -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 	<!-- Custom CSS -->
 	<style>
 		:root {
-			--matrix-black: #000000;
-			--matrix-green: #00ff41;
-			--matrix-dim-green: #003b00;
-			--matrix-silver: #c0c0c0;
-			--matrix-dark-silver: #333333;
-			--glow-shadow: 0 0 10px var(--matrix-green), 0 0 20px var(--matrix-green), 0 0 30px var(--matrix-green);
-		}
-
-		@keyframes matrixRain {
-			0% {
-				background-position: 0% 0%;
-			}
-			100% {
-				background-position: 0% 100%;
-			}
-		}
-
-		@keyframes glowPulse {
-			0% {
-				box-shadow: 0 0 5px var(--matrix-green);
-			}
-			50% {
-				box-shadow: 0 0 20px var(--matrix-green);
-			}
-			100% {
-				box-shadow: 0 0 5px var(--matrix-green);
-			}
-		}
-
-		@keyframes textGlow {
-			0% {
-				text-shadow: 0 0 5px var(--matrix-green);
-			}
-			50% {
-				text-shadow: 0 0 15px var(--matrix-green);
-			}
-			100% {
-				text-shadow: 0 0 5px var(--matrix-green);
-			}
+			--cs-white: #ffffff;
+			--cs-black: #000000;
+			--cs-grey-100: #f8f9fa;
+			--cs-grey-200: #e9ecef;
+			--cs-grey-300: #dee2e6;
+			--cs-grey-600: #6c757d;
+			--cs-grey-900: #212529;
 		}
 
 		body {
-			background-color: var(--matrix-black);
-			font-family: 'Poppins', sans-serif;
-			color: var(--matrix-silver);
+			background-color: var(--cs-white);
+			font-family: 'Montserrat', sans-serif;
+			color: var(--cs-grey-900);
 			line-height: 1.8;
-			position: relative;
-		}
-
-		body::before {
-			content: '';
-			position: fixed;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			background: linear-gradient(0deg, 
-				rgba(0, 0, 0, 0.97), 
-				rgba(0, 0, 0, 0.9)
-			);
-			z-index: -1;
 		}
 
 		h1, h2, h3, h4, h5, h6 {
-			font-family: 'Orbitron', sans-serif;
-			color: var(--matrix-green);
-			text-transform: uppercase;
-			letter-spacing: 2px;
+			font-family: 'Montserrat', sans-serif;
+			font-weight: 800;
+			letter-spacing: -0.5px;
 		}
 
 		.navbar {
-			background: rgba(0, 0, 0, 0.9);
-			border-bottom: 1px solid var(--matrix-green);
+			background: var(--cs-white);
 			padding: 1rem 0;
-			transition: all 0.3s ease;
+			border-bottom: 1px solid var(--cs-grey-200);
 		}
 
 		.navbar-brand {
-			font-family: 'Orbitron', sans-serif;
-			color: var(--matrix-green) !important;
-			font-weight: 700;
-			font-size: 1.5rem;
-			text-transform: uppercase;
-			letter-spacing: 3px;
-			transition: all 0.3s ease;
+			padding: 0;
 		}
 
-		.navbar-brand:hover {
-			text-shadow: var(--glow-shadow);
+		.navbar-brand img {
+			height: 40px;
+			width: auto;
 		}
 
 		.nav-link {
-			color: var(--matrix-silver) !important;
-			font-family: 'Orbitron', sans-serif;
+			color: var(--cs-grey-900) !important;
+			font-weight: 600;
 			text-transform: uppercase;
-			letter-spacing: 2px;
-			margin: 0 1rem;
-			position: relative;
-			transition: all 0.3s ease;
+			letter-spacing: 1px;
+			padding: 0.5rem 1.5rem !important;
+			font-size: 0.9rem;
+			transition: color 0.3s ease;
 		}
 
 		.nav-link:hover {
-			color: var(--matrix-green) !important;
-			text-shadow: var(--glow-shadow);
+			color: var(--cs-grey-600) !important;
 		}
 
-		.nav-link::after {
-			content: '';
-			position: absolute;
-			bottom: -5px;
-			left: 0;
-			width: 0;
-			height: 2px;
-			background: var(--matrix-green);
-			transition: width 0.3s ease;
+		.dropdown-menu {
+			border: 1px solid var(--cs-grey-200);
+			border-radius: 0;
+			padding: 0.5rem 0;
 		}
 
-		.nav-link:hover::after {
-			width: 100%;
-			box-shadow: var(--glow-shadow);
+		.dropdown-item {
+			font-weight: 500;
+			padding: 0.5rem 1.5rem;
+			color: var(--cs-grey-900);
+		}
+
+		.dropdown-item:hover {
+			background-color: var(--cs-grey-100);
 		}
 
 		.hero {
-			height: 100vh;
-			margin-top: 0;
-			padding: 0;
-			position: relative;
+			height: 80vh;
+			background-color: var(--cs-grey-100);
+			margin-top: 76px;
 			display: flex;
 			align-items: center;
-			justify-content: center;
+			position: relative;
 			overflow: hidden;
-			background: var(--matrix-black);
-		}
-
-		.hero::before {
-			content: '';
-			position: absolute;
-			top: 0;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			background: linear-gradient(45deg, 
-				rgba(0, 255, 65, 0.1) 0%,
-				rgba(0, 0, 0, 0.9) 100%
-			);
-			z-index: 1;
 		}
 
 		.hero-content {
-			position: relative;
-			z-index: 2;
 			text-align: center;
+			max-width: 800px;
+			margin: 0 auto;
+			padding: 2rem;
 		}
 
 		.hero h1 {
-			font-size: 4rem;
-			font-weight: 900;
-			margin-bottom: 2rem;
-			animation: textGlow 2s infinite;
+			font-size: 3.5rem;
+			line-height: 1.2;
+			margin-bottom: 1.5rem;
+			color: var(--cs-black);
 		}
 
 		.hero p {
-			color: var(--matrix-silver);
-			font-size: 1.5rem;
-			margin-bottom: 3rem;
-			font-family: 'Poppins', sans-serif;
+			font-size: 1.25rem;
+			color: var(--cs-grey-600);
+			margin-bottom: 2rem;
+			font-weight: 500;
 		}
 
-		.btn-cyber {
-			background: transparent;
-			color: var(--matrix-green);
-			border: 2px solid var(--matrix-green);
-			padding: 1rem 3rem;
-			font-family: 'Orbitron', sans-serif;
+		.btn-primary {
+			background-color: var(--cs-black);
+			border: none;
+			padding: 1rem 2.5rem;
+			font-weight: 600;
 			text-transform: uppercase;
-			letter-spacing: 2px;
-			position: relative;
-			overflow: hidden;
+			letter-spacing: 1px;
+			border-radius: 0;
 			transition: all 0.3s ease;
-			animation: glowPulse 2s infinite;
 		}
 
-		.btn-cyber:hover {
-			background: var(--matrix-green);
-			color: var(--matrix-black);
-			transform: translateY(-3px);
-			box-shadow: var(--glow-shadow);
+		.btn-primary:hover {
+			background-color: var(--cs-grey-900);
+			transform: translateY(-2px);
+		}
+
+		.feature-section {
+			padding: 5rem 0;
+			background-color: var(--cs-white);
 		}
 
 		.feature-card {
-			background: rgba(0, 0, 0, 0.7);
-			border: 1px solid var(--matrix-green);
-			border-radius: 5px;
 			padding: 2rem;
-			margin: 1rem 0;
+			text-align: center;
+			background-color: var(--cs-white);
 			transition: all 0.3s ease;
-			position: relative;
-			overflow: hidden;
-		}
-
-		.feature-card::before {
-			content: '';
-			position: absolute;
-			top: 0;
-			left: -100%;
-			width: 100%;
-			height: 100%;
-			background: linear-gradient(
-				90deg,
-				transparent,
-				rgba(0, 255, 65, 0.1),
-				transparent
-			);
-			transition: 0.5s;
-		}
-
-		.feature-card:hover::before {
-			left: 100%;
-		}
-
-		.feature-card:hover {
-			transform: translateY(-5px);
-			box-shadow: 0 0 20px rgba(0, 255, 65, 0.2);
 		}
 
 		.feature-card h3 {
-			color: var(--matrix-green);
+			font-size: 1.5rem;
+			margin: 1.5rem 0;
+			color: var(--cs-black);
+		}
+
+		.feature-card p {
+			color: var(--cs-grey-600);
+			font-size: 1rem;
+			line-height: 1.6;
+		}
+
+		.about-section {
+			padding: 5rem 0;
+			background-color: var(--cs-grey-100);
+		}
+
+		.about-content {
+			max-width: 800px;
+			margin: 0 auto;
+			text-align: center;
+		}
+
+		.about-content h2 {
+			font-size: 2.5rem;
+			margin-bottom: 2rem;
+			color: var(--cs-black);
+		}
+
+		.about-content p {
+			color: var(--cs-grey-600);
+			font-size: 1.1rem;
+			line-height: 1.8;
 			margin-bottom: 1.5rem;
 		}
 
 		footer {
-			background: rgba(0, 0, 0, 0.9);
-			border-top: 1px solid var(--matrix-green);
-			color: var(--matrix-silver);
-			padding: 2rem 0;
+			background: var(--cs-white);
+			border-top: 1px solid var(--cs-grey-200);
+			padding: 3rem 0;
+			color: var(--cs-grey-900);
 		}
 
 		.social-icons {
@@ -256,15 +188,14 @@
 		}
 
 		.social-icons a {
-			color: var(--matrix-silver);
+			color: var(--cs-grey-600);
 			margin: 0 1rem;
-			font-size: 1.5rem;
-			transition: all 0.3s ease;
+			font-size: 1.25rem;
+			transition: color 0.3s ease;
 		}
 
 		.social-icons a:hover {
-			color: var(--matrix-green);
-			text-shadow: var(--glow-shadow);
+			color: var(--cs-black);
 		}
 
 		@media (max-width: 768px) {
@@ -272,10 +203,13 @@
 				font-size: 2.5rem;
 			}
 			.hero p {
-				font-size: 1.2rem;
+				font-size: 1.1rem;
 			}
-			.navbar-brand {
-				font-size: 1.2rem;
+			.navbar-brand img {
+				height: 30px;
+			}
+			.nav-link {
+				padding: 0.5rem 1rem !important;
 			}
 		}
 	</style>
@@ -284,31 +218,33 @@
 <body>
 	<nav class="navbar navbar-expand-lg fixed-top">
 		<div class="container">
-			<a class="navbar-brand" href="index.html">CaliforniaShack</a>
+			<a class="navbar-brand" href="index.html">
+				<img src="https://placehold.co/120x40/000000/FFFFFF?text=CS+Bear" alt="CaliforniaShack">
+			</a>
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
 				<span class="navbar-toggler-icon"></span>
 			</button>
-			<div class="collapse navbar-collapse" id="navbarNav">
-				<ul class="navbar-nav ms-auto">
+			<div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+				<ul class="navbar-nav">
 					<li class="nav-item">
-						<a class="nav-link active" href="index.html">Home</a>
+						<a class="nav-link" href="products.html#tops">Tops</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="about.html">About</a>
+						<a class="nav-link" href="products.html#bottoms">Bottoms</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="blog.html">Blog</a>
+						<a class="nav-link" href="products.html#gold">Gold</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="products.html#silver">Silver</a>
 					</li>
 					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
-							Products
+						<a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown">
+							Services
 						</a>
-						<ul class="dropdown-menu bg-dark">
-							<li><a class="dropdown-item text-light" href="products.html#repair">Repair Services</a></li>
-							<li><a class="dropdown-item text-light" href="products.html#tops">Tops</a></li>
-							<li><a class="dropdown-item text-light" href="products.html#bottoms">Bottoms</a></li>
-							<li><a class="dropdown-item text-light" href="products.html#gold">Gold Jewelry</a></li>
-							<li><a class="dropdown-item text-light" href="products.html#silver">Silver Jewelry</a></li>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item" href="products.html#repair">Repairs</a></li>
+							<li><a class="dropdown-item" href="products.html#consignment">Consignment</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -318,37 +254,46 @@
 
 	<section class="hero">
 		<div class="hero-content container">
-			<h1>CaliforniaShack<br>The Future of Y2K Fashion</h1>
-			<p>Where vintage meets cyberpunk. Redefining street style.</p>
-			<a href="products.html" class="btn btn-cyber">Shop Now</a>
+			<h1>CaliforniaShack<br>Clothing Resale and Repair Company</h1>
+			<p>Vintage - Y2K - Workwear - Jewelry</p>
+			<a href="products.html" class="btn btn-primary">Explore Collection</a>
 		</div>
 	</section>
 
-	<main class="container py-5">
-		<section>
-			<h2 class="text-center mb-5">Why Choose Us</h2>
+	<section class="feature-section">
+		<div class="container">
 			<div class="row">
 				<div class="col-md-4">
 					<div class="feature-card">
+						<h3>Expert Repairs</h3>
+						<p>Professional restoration and repair services for vintage clothing and accessories.</p>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="feature-card">
 						<h3>Curated Selection</h3>
-						<p>Hand-picked vintage Y2K pieces that define the future of fashion.</p>
+						<p>Hand-picked vintage and Y2K pieces, carefully selected for quality and style.</p>
 					</div>
 				</div>
 				<div class="col-md-4">
 					<div class="feature-card">
-						<h3>Digital Innovation</h3>
-						<p>Merging classic styles with modern tech for a unique shopping experience.</p>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="feature-card">
-						<h3>Sustainable Future</h3>
-						<p>Eco-conscious fashion that looks ahead while preserving the past.</p>
+						<h3>Consignment</h3>
+						<p>Partner with us to sell your vintage pieces to our community of collectors.</p>
 					</div>
 				</div>
 			</div>
-		</section>
-	</main>
+		</div>
+	</section>
+
+	<section class="about-section" id="about">
+		<div class="container">
+			<div class="about-content">
+				<h2>About CaliforniaShack</h2>
+				<p>CaliforniaShack is your premier destination for vintage clothing resale and professional repair services. We specialize in authentic Y2K pieces, workwear, and fine jewelry, offering both restoration services and carefully curated selections.</p>
+				<p>Our expert team combines years of experience in vintage clothing restoration with a passion for preserving the quality and character of each piece. Whether you're looking to buy, sell, or restore, we're here to help maintain the legacy of vintage fashion.</p>
+			</div>
+		</div>
+	</section>
 
 	<footer class="text-center">
 		<div class="container">
