@@ -4,115 +4,156 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Products - Simple Business</title>
+    <title>Products - CaliforniaShack</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <!-- Custom CSS -->
     <style>
         :root {
-            --y2k-blue: #00ffff;
-            --y2k-pink: #ff69b4;
-            --y2k-purple: #9370db;
-            --y2k-yellow: #ffff00;
+            --beach-sand: #f5e6ca;
+            --ocean-blue: #3494b0;
+            --sunset-orange: #ff7e5f;
+            --palm-green: #7cb69d;
+            --shell-pink: #ffd5c2;
         }
 
         body {
             background: white;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Montserrat', sans-serif;
+            color: #2c3e50;
+            line-height: 1.8;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
         }
 
         .navbar {
-            background: linear-gradient(90deg, var(--y2k-blue), var(--y2k-purple));
-            border-bottom: 3px solid var(--y2k-yellow);
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
         }
 
         .navbar-brand, .nav-link {
-            color: white !important;
-            text-transform: uppercase;
-            font-weight: bold;
-            letter-spacing: 2px;
+            color: var(--ocean-blue) !important;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .nav-link:hover {
+            color: var(--sunset-orange) !important;
         }
 
         .page-header {
             margin-top: 76px;
-            padding: 3rem 0;
-            background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7));
-            border-bottom: 3px solid var(--y2k-pink);
+            padding: 4rem 0;
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)),
+                        url('https://placehold.co/1200x400/3494b0/FFFFFF');
+            position: relative;
         }
 
         .page-header h1 {
-            color: var(--y2k-purple);
-            font-weight: 800;
-            text-transform: uppercase;
-            text-shadow: 2px 2px var(--y2k-pink);
+            color: var(--ocean-blue);
+            font-weight: 700;
+            margin-bottom: 1rem;
         }
 
         .product-card {
-            border: 2px solid var(--y2k-purple);
-            border-radius: 15px;
-            padding: 20px;
-            margin: 15px 0;
             background: white;
-            box-shadow: 5px 5px var(--y2k-blue);
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
             transition: all 0.3s ease;
+            border: none;
+            border-bottom: 4px solid var(--ocean-blue);
         }
 
         .product-card:hover {
             transform: translateY(-5px);
-            box-shadow: 8px 8px var(--y2k-pink);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
 
         .product-card img {
-            border: 3px solid var(--y2k-purple);
-            border-radius: 10px;
+            height: 250px;
+            object-fit: cover;
+            border-bottom: 3px solid var(--beach-sand);
+        }
+
+        .product-card .card-body {
+            padding: 25px;
+        }
+
+        .product-card .card-title {
+            color: var(--ocean-blue);
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .product-card .card-text {
+            color: #2c3e50;
             margin-bottom: 20px;
         }
 
-        .product-card h2 {
-            color: var(--y2k-purple);
-            font-weight: bold;
-            text-transform: uppercase;
+        .product-price {
+            color: var(--sunset-orange);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 20px;
         }
 
-        .product-card ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .product-card li {
-            margin: 10px 0;
-            padding: 8px;
-            border-radius: 8px;
-            background: linear-gradient(45deg, rgba(0,255,255,0.1), rgba(147,112,219,0.1));
-        }
-
-        .btn-y2k {
-            background: linear-gradient(45deg, var(--y2k-blue), var(--y2k-purple));
+        .product-card .btn {
+            background-color: var(--ocean-blue);
             color: white;
             border: none;
-            padding: 10px 30px;
+            padding: 10px 25px;
             border-radius: 25px;
-            text-transform: uppercase;
-            font-weight: bold;
-            letter-spacing: 1px;
-            box-shadow: 3px 3px var(--y2k-pink);
             transition: all 0.3s ease;
-            display: inline-block;
-            margin-top: 15px;
+            width: 100%;
         }
 
-        .btn-y2k:hover {
+        .product-card .btn:hover {
+            background-color: var(--sunset-orange);
             transform: translateY(-2px);
-            box-shadow: 5px 5px var(--y2k-pink);
-            color: var(--y2k-yellow);
-            text-decoration: none;
+        }
+
+        .product-features {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 20px;
+        }
+
+        .product-features li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .product-features li:before {
+            content: "🌊";
+            position: absolute;
+            left: 0;
+            top: 0;
         }
 
         footer {
-            background: linear-gradient(90deg, var(--y2k-purple), var(--y2k-blue));
-            color: white;
-            padding: 20px 0;
+            background: var(--beach-sand);
+            color: #2c3e50;
+            padding: 30px 0;
             margin-top: 50px;
+        }
+
+        @media (max-width: 768px) {
+            .page-header {
+                padding: 3rem 0;
+            }
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+            .product-card img {
+                height: 200px;
+            }
         }
     </style>
 </head>
@@ -120,7 +161,7 @@
 <body>
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="index.html">Simple Business</a>
+            <a class="navbar-brand" href="index.html">CaliforniaShack</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -146,62 +187,66 @@
     <header class="page-header">
         <div class="container text-center">
             <h1>Our Products</h1>
-            <p class="lead">Discover our range of innovative solutions designed to help your business grow.</p>
+            <p class="lead">Discover our collection of coastal-inspired business solutions.</p>
         </div>
     </header>
 
     <main class="container py-5">
         <div class="row">
             <div class="col-md-4">
-                <article class="product-card">
-                    <img src="https://placehold.co/400x300/EEE/31343C" alt="Product 1" class="img-fluid">
-                    <h2>Enterprise Solution</h2>
-                    <p>A comprehensive business management system designed for large organizations.</p>
-                    <p><strong>Key Features:</strong></p>
-                    <ul>
-                        <li>Advanced Analytics</li>
-                        <li>Team Collaboration</li>
-                        <li>Cloud Integration</li>
-                    </ul>
-                    <a href="#" class="btn-y2k">Learn More</a>
-                </article>
+                <div class="product-card">
+                    <img src="https://placehold.co/400x250/3494b0/FFFFFF" alt="Product 1" class="card-img-top">
+                    <div class="card-body">
+                        <h3 class="card-title">Coastal Business Suite</h3>
+                        <p class="card-text">A comprehensive business management solution inspired by the relaxed efficiency of beach life.</p>
+                        <ul class="product-features">
+                            <li>Cloud-based system</li>
+                            <li>Real-time analytics</li>
+                            <li>Mobile optimization</li>
+                        </ul>
+                        <div class="product-price">$299/month</div>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
             </div>
-
             <div class="col-md-4">
-                <article class="product-card">
-                    <img src="https://placehold.co/400x300/EEE/31343C" alt="Product 2" class="img-fluid">
-                    <h2>Business Suite</h2>
-                    <p>Perfect solution for small to medium-sized businesses looking to optimize their operations.</p>
-                    <p><strong>Key Features:</strong></p>
-                    <ul>
-                        <li>Project Management</li>
-                        <li>Resource Planning</li>
-                        <li>Performance Tracking</li>
-                    </ul>
-                    <a href="#" class="btn-y2k">Learn More</a>
-                </article>
+                <div class="product-card">
+                    <img src="https://placehold.co/400x250/7cb69d/FFFFFF" alt="Product 2" class="card-img-top">
+                    <div class="card-body">
+                        <h3 class="card-title">SoCal CRM</h3>
+                        <p class="card-text">Customer relationship management system with the smooth flow of ocean waves.</p>
+                        <ul class="product-features">
+                            <li>Customer tracking</li>
+                            <li>Sales pipeline</li>
+                            <li>Email integration</li>
+                        </ul>
+                        <div class="product-price">$199/month</div>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
             </div>
-
             <div class="col-md-4">
-                <article class="product-card">
-                    <img src="https://placehold.co/400x300/EEE/31343C" alt="Product 3" class="img-fluid">
-                    <h2>Starter Pack</h2>
-                    <p>Essential tools for startups and small businesses just beginning their journey.</p>
-                    <p><strong>Key Features:</strong></p>
-                    <ul>
-                        <li>Basic Analytics</li>
-                        <li>Task Management</li>
-                        <li>Email Integration</li>
-                    </ul>
-                    <a href="#" class="btn-y2k">Learn More</a>
-                </article>
+                <div class="product-card">
+                    <img src="https://placehold.co/400x250/ff7e5f/FFFFFF" alt="Product 3" class="card-img-top">
+                    <div class="card-body">
+                        <h3 class="card-title">Beach Analytics</h3>
+                        <p class="card-text">Data analytics platform that brings clarity like a perfect beach day.</p>
+                        <ul class="product-features">
+                            <li>Custom dashboards</li>
+                            <li>Predictive analysis</li>
+                            <li>Report automation</li>
+                        </ul>
+                        <div class="product-price">$149/month</div>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
 
     <footer class="text-center">
         <div class="container">
-            <p class="mb-0">&copy; 2024 Simple Business. All rights reserved.</p>
+            <p class="mb-0">&copy; 2024 CaliforniaShack. All rights reserved.</p>
         </div>
     </footer>
 
